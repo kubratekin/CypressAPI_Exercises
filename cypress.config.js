@@ -1,9 +1,10 @@
-const { defineConfig } = require("cypress");
+const { defineConfig } =
 
-module.exports = defineConfig({
+module.exports = {
   e2e: {
-    setupNodeEvents(on, config) {
-      // implement node event listeners here
-    },
+    baseUrl: 'https://automationexercise.com',
+    viewportWidth: 1440,
+    viewportHeight: 900,
+    experimentalRunAllSpecs: true,
   },
-});
+};
