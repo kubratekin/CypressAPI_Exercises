@@ -48,4 +48,25 @@ describe('Update Account API Test', () => {
       });
     });
   });
+
+    /*
+  API 4: PUT To All Brands List
+  API URL: https://automationexercise.com/api/brandsList
+Request Method: PUT
+Response Code: 405
+Response Message: This request method is not supported. */
+it('should retrieve the list of brands', () => {
+  cy.request({
+    method: 'PUT',
+    url: 'https://automationexercise.com/api/brandsList',
+    failOnStatusCode: false
+  }).then((response) => {
+    if (response.status === 200) {
+      cy.log('Brand list retrieved successfully');
+      // Add your assertions or further testing logic here
+    } else {
+      throw new Error('Failed to retrieve brand list');
+    }
+  });
+});
   

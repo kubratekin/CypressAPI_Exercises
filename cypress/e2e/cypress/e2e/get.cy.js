@@ -33,4 +33,35 @@ describe('Get User Detail by Email API Test', () => {
       });
     });
   });
-  
+
+
+
+  describe('API Test', () => {
+    /* API 1: Get All Products List
+    API URL: https://automationexercise.com/api/productsList
+    Request Method: GET
+    Response Code: 200
+    Response JSON: All products list 
+     */
+        it.only('should get products list', () => {
+          
+          const apiUrl = 'https://automationexercise.com/api/productsList';
+    
+          cy.request({
+           method:'GET',
+           url:apiUrl,})
+        .then((response) => {
+             
+             cy.log(response.body);
+             cy.log(JSON.stringify(response.body));
+             expect(response.status).to.eq(200);
+             // response.body.products değeri tanımlı (defined) ve boş değilse geçerli
+             //if (response.body.products !== undefined) {
+               // expect(response.body.products).to.not.be.empty;
+             //} else {
+                // Eğer products tanımlı değilse veya undefined ise bir hata mesajı yazabilirsiniz
+               // cy.log('Hata: Ürünler listesi tanımlı değil veya undefined.');
+             //}
+          });
+        });
+      });

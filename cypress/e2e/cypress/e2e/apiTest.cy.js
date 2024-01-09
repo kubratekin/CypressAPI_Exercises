@@ -1,27 +1,4 @@
-describe('API Test', () => {
-/* API 1: Get All Products List
-API URL: https://automationexercise.com/api/productsList
-Request Method: GET
-Response Code: 200
-Response JSON: All products list 
- */
-    it.skip('should get products list', () => {
-      
-      const apiUrl = 'https://automationexercise.com/api/productsList';
-
-      cy.request(apiUrl).then((response) => {
-         expect(response.status).to.equal(200);
-         cy.log(response);
-
-         // response.body.products değeri tanımlı (defined) ve boş değilse geçerli
-         if (response.body.products !== undefined) {
-            expect(response.body.products).to.not.be.empty;
-         } else {
-            // Eğer products tanımlı değilse veya undefined ise bir hata mesajı yazabilirsiniz
-            cy.log('Hata: Ürünler listesi tanımlı değil veya undefined.');
-         }
-      });
-    });
+//const { method } = require("bluebird");
 
 
 /*API 2: POST To All Products List
@@ -51,6 +28,11 @@ Response Message: This request method is not supported.*/
         // If the status code is 405, validate the response message
         expect(response.body).to.have.property('message', 'This request method is not supported.');
     });});
+
+
+
+
+
 
       /*API 3: Get All Brands List
 API URL: https://automationexercise.com/api/brandsList
@@ -107,14 +89,4 @@ Response Message: This request method is not supported. */
             }
           });
         });
-
-
-      
-
-  
-  
-  
-    
-  
-
-});
+ 
